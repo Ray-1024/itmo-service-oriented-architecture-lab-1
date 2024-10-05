@@ -104,16 +104,11 @@ paths:
 
       responses:
         '200':
-          description: Список квартир, отсортированный по времени до метро
+          description: Created route
           content:
             application/xml:
               schema:
-                type: array
-                xml:
-                  name: flats
-                  wrapped: true
-                items:
-                  $ref: './collection-service.yaml#/components/schemas/RouteAllFields'
+                $ref: './collection-service.yaml#/components/schemas/RouteAllFields'
         '400':
           description: Invalid query param
           content:
