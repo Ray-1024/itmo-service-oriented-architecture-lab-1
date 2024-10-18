@@ -4,8 +4,7 @@ window.onload = function() {
   // the following lines will be replaced by docker/configurator, when it runs in a docker-container
   window.ui = SwaggerUIBundle({
     urls: [
-	    { url: "./collection-service.yaml", name: "Collection web service" },
-	    { url: "./navigator-service.yaml", name: "Navigator web service" }
+	    { url: "./openapi.yaml", name: "Lab web services" }
     ],
         dom_id: '#swagger-ui',
     deepLinking: true,
@@ -17,6 +16,12 @@ window.onload = function() {
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout"
+  });
+
+  document.getElementById('server-select').addEventListener('change', function () {
+    const selectedServer = this.value;
+    ui.specActions.updateUrl(selectedServer + '/openapi.yaml'); // Adjust as necessary
+    ui.specActions.fetch();
   });
 
   //</editor-fold>
