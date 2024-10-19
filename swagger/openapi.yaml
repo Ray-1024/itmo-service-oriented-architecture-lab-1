@@ -412,7 +412,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /navigator/routes/{id-from}/{id-to}/{order-by}:
+  /navigator/routes/{name-from}/{name-to}/{order-by}:
     get:
       servers:
         - url: 'http://localhost:22401/api/v1/navigator'
@@ -421,22 +421,20 @@ paths:
       summary: find all routes between the specified locations, sort the list by the specified parameter
       operationId: findAllRoutesBetweenLocations
       parameters:
-        - name: id-from
+        - name: name-from
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
-            example: 1
-        - name: id-to
+            type: string
+            minLength: 1
+            example: location 1
+        - name: name-to
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
-            example: 2
+            type: string
+            minLength: 1
+            example: location 2
         - name: order-by
           in: path
           required: true
@@ -502,7 +500,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /navigator/route/add/{id-from}/{id-to}/{distance}:
+  /navigator/route/add/{name-from}/{name-to}/{distance}:
     post:
       servers:
         - url: 'http://localhost:22401/api/v1/navigator'
@@ -530,22 +528,20 @@ paths:
                   minLength: 1
                   example: Route №1203
       parameters:
-        - name: id-from
-          in: path
-          required: false
-          schema:
-            type: integer
-            format: int64
-            minimum: 1
-            example: 1
-        - name: id-to
+        - name: name-from
           in: path
           required: true
           schema:
-            type: integer
-            format: int64
-            minimum: 1
-            example: 2
+            type: string
+            minLength: 1
+            example: location 1
+        - name: name-to
+          in: path
+          required: true
+          schema:
+            type: string
+            minLength: 1
+            example: location 2
         - name: distance
           in: path
           required: true
