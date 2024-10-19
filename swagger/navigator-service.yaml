@@ -13,7 +13,7 @@ tags:
   - name: Navigator operations
 
 paths:
-  /navigator/routes/{name-from}/{name-to}/{order-by}:
+  /routes/{name-from}/{name-to}/{order-by}:
     get:
       servers:
         - url: 'http://localhost:22401/api/v1/navigator'
@@ -101,7 +101,7 @@ paths:
               schema:
                 $ref: './collection-service.yaml#/components/schemas/Error'
 
-  /navigator/route/add/{name-from}/{name-to}/{distance}:
+  /route/add/{name-from}/{name-to}/{distance}:
     post:
       servers:
         - url: 'http://localhost:22401/api/v1/navigator'
