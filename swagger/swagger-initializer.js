@@ -17,12 +17,5 @@ window.onload = function() {
     ],
     layout: "StandaloneLayout"
   });
-
-  document.getElementById('server-select').addEventListener('change', function () {
-    const selectedServer = this.value;
-    ui.specActions.updateUrl(selectedServer + '/openapi.yaml'); // Adjust as necessary
-    ui.specActions.fetch();
-  });
-
   //</editor-fold>
 };
